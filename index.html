@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Web Crawler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🕷️ Professional Web Crawler</h1>
+        <p class="subtitle">Полнофункциональный инструмент для сбора всех страниц сайта</p>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="urlInput">URL сайта:</label>
+                <input type="url" id="urlInput" placeholder="https://example.com" required>
+            </div>
+            
+            <div class="settings">
+                <div class="input-group">
+                    <label for="maxPages">Максимум страниц:</label>
+                    <input type="number" id="maxPages" value="500" min="1" max="5000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="delay">Задержка (мс):</label>
+                    <input type="number" id="delay" value="200" min="50" max="2000">
+                </div>
+                
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="usePuppeteer" checked>
+                        Исполнять JavaScript (медленнее)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="crawlBtn" onclick="startCrawling()">▶️ Начать сбор страниц</button>
+            <button id="stopBtn" onclick="stopCrawling()" style="display: none;">⏹️ Остановить</button>
+            <button id="pauseBtn" onclick="togglePause()" style="display: none;">⏸️ Пауза</button>
+        </div>
+
+        <!-- Прогресс -->
+        <div class="progress-section" id="progressSection" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-info" id="progressInfo"></div>
+            
+            <div class="stats-grid" id="statsGrid"></div>
+            
+            <div class="log-container">
+                <h3>Журнал работы:</h3>
+                <div class="log" id="log"></div>
+            </div>
+        </div>
+
+        <!-- Результаты -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>✅ Сбор завершен!</h2>
+            <div class="results-stats" id="resultsStats"></div>
+            
+            <div class="export-buttons">
+                <button onclick="exportCSV()">📥 Скачать CSV</button>
+                <button onclick="exportJSON()">📊 Скачать JSON</button>
+                <button onclick="exportTXT()">📄 Скачать TXT</button>
+                <button onclick="viewResults()">👁️ Просмотреть список</button>
+            </div>
+            
+            <div class="urls-list" id="urlsList" style="display: none;">
+                <h3>Найденные страницы:</h3>
+                <div class="urls-container" id="urlsContainer"></div>
+            </div>
+        </div>
+
+        <div class="error" id="error"></div>
+    </div>
+
+    <script src="crawler.js"></script>
+</body>
+</html>
