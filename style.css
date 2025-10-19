@@ -335,3 +335,72 @@ button {
         font-size: 2em;
     }
 }
+
+/* Добавьте эти стили в существующий CSS */
+
+.time-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.time-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #17a2b8;
+}
+
+.time-value {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.time-label {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.progress-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.progress-speed {
+    background: rgba(40, 167, 69, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #28a745;
+    font-weight: 600;
+}
+
+.estimated-time {
+    background: rgba(23, 162, 184, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #17a2b8;
+    font-weight: 600;
+}
+
+/* Адаптивность для времени */
+@media (max-width: 768px) {
+    .time-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-details {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
